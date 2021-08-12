@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>convs</Title>
+			<Shortcut>convs</Shortcut>
+			<Description>Frammento di codice per converter singleton con markup extension</Description>
+			<Author>Foglio</Author>
+			<SnippetTypes>
+				<SnippetType>Expansion</SnippetType>
+				<SnippetType>SurroundsWith</SnippetType>
+			</SnippetTypes>
+		</Header>
+		<Snippet>
+			<Declarations>
+				<Literal>
+					<ID>name</ID>
+					<ToolTip>Nome della classe</ToolTip>
+					<Default>MyConverter</Default>
+				</Literal>
+			</Declarations>
+			<Code Language="csharp"><![CDATA[public class $name$ : MarkupExtension, IValueConverter
+	{
+		private static $name$? _instance;
+		public object? Convert(object value, Type targetType, object parameter, CultureInfo culture)
+		{
+    		$selected$$end$
+		}
+		
+		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+		{
+			throw new NotImplementedException();
+		}
+
+		public override object ProvideValue(IServiceProvider serviceProvider)
+		{
+			if (_instance == null) _instance = new();
+			return _instance;
+		}
+	}]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>
